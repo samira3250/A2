@@ -1,0 +1,40 @@
+function derivative(expression) {
+     const match = expression.match(/([+-]?\s*\d*\.?\d*)x(?:\^(\d+))?/);
+    if (!match) {
+        return "0";  
+    }
+    const a = parseFloat(match[1] || 1);  
+    const n = parseInt(match[2] || 1);     
+
+    if (isNaN(a) || isNaN(n)) {
+        return "Неподдерживаемое выражение";  }
+    if (n === 0) {
+        return "0";    }
+    const newA = a * n;
+    const newN = n - 1;
+    let result = "";
+    if (newA !== 1 || newN === 0) {
+        result += newA;   }
+
+    if (newN > 0) {
+        result += "x";
+        if (newN > 1) {
+            result += "^" + newN;    } }
+    return result;
+}
+let expression = "2x^3";  
+let derived = derivative(expression);
+console.log("Производная от " + expression + " равна " + derived);  
+expression = "x^2";
+derived = derivative(expression);
+console.log("Производная от " + expression + " равна " + derived);  
+expression = "5x";
+derived = derivative(expression);
+console.log("Производная от " + expression + " равна " + derived);   
+expression = "10";
+derived = derivative(expression);
+console.log("Производная от " + expression + " равна " + derived);  
+
+expression = "2x^3 + 5x - 7";
+derived = derivative(expression);
+console.log("Производная от " + expression + " равна " + derived);  
