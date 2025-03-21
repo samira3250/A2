@@ -1,9 +1,4 @@
-     let iterations = 100000;
-    let pi = 0;
-
+let iterations = 100000;    let pi = 0;
     for (let i = 0; i < iterations; i++) {
-      pi += (4 / (2 * i + 1)) * (i % 2 === 0 ? 1 : -1);
-    }
-
+      pi += (4 / (2 * i + 1)) * (i % 2 === 0 ? 1 : -1);    }
     console.log("Приближенное значение Пи: " + pi);
-    
