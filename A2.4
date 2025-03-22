@@ -1,4 +1,28 @@
-let iterations = 100000;    let pi = 0;
-    for (let i = 0; i < iterations; i++) {
-      pi += (4 / (2 * i + 1)) * (i % 2 === 0 ? 1 : -1);    }
-    console.log("Приближенное значение Пи: " + pi);
+function calculatePi() {
+  let numerator = 22;
+  let denominator = 7;
+  let integerPart = 0;
+  let remainder = numerator;
+   while (remainder >= denominator) {
+    remainder -= denominator;
+    integerPart++;
+  }
+  let multipliedRemainder = 0;
+  for (let i = 0; i < 10000; i++) {
+    multipliedRemainder += remainder;
+  }
+  remainder = multipliedRemainder;
+   let fractionalPart = 0;
+  while (remainder >= denominator) {
+    remainder -= denominator;
+    fractionalPart++;
+  }
+   let fractionalPartString = fractionalPart.toString();
+  while (fractionalPartString.length < 4) {
+    fractionalPartString = "0" + fractionalPartString;
+  }
+   let pi = integerPart + "." + fractionalPartString;
+  return pi;
+}
+console.log("Приближенное значение числа Пи (22/7) = " + calculatePi());
+
